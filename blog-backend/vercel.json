@@ -1,12 +1,16 @@
 {
-    "version": 2,
-    "builds": [
-      {"src": "*.js","use": "@vercel/node" }
-    ],
-    "routes": [
-      {
-        "src": "/(.*)",
-        "dest": "/"
-      }
-    ]
+  "version": 2,
+  "buildCommand": "npm install && npm run build",
+  "installCommand": "npm install",
+  "routes": [
+    { "src": "/api/(.*)", "dest": "backend/index.js" },
+    { "src": "/(.*)", "dest": "/index.html" }
+  ],
+  "functions": {
+    "api/**/*.js": { "runtime": "nodejs18.x" }
+  },
+  "env": {
+    "MONGODB_URI": "mongodb+srv://Bhakti12:12345678a@cluster.hozl3.mongodb.net/Post?retryWrites=true&w=majority",
+    "CLOUDINARY_URL": "cloudinary://465124593463732:COr_Ct0q5d0OY4fGAmrXW3Jxl1o@dj2juzuu5"
   }
+}
