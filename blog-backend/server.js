@@ -218,6 +218,9 @@ mongoose.connect('mongodb+srv://Bhakti12:12345678a@cluster.hozl3.mongodb.net/Pos
   .then(() => console.log('MongoDB connected'))
   .catch((err) => console.error('Error connecting to MongoDB:', err));
 
+app.get("/",(req,res)=>{
+    res.json("Hello");
+})
 // Route to handle adding new post
 app.post('/api/posts', async (req, res) => {
   const { title, description } = req.body;
